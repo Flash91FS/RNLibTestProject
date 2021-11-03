@@ -6,9 +6,11 @@
  * @flow strict-local
  */
 
-import React from 'react';
+ import React from 'react';
+ import SimpleZendesk from 'react-native-simple-zendesk';
 import type {Node} from 'react';
 import {
+  Button,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -28,6 +30,8 @@ import {
 
 const Section = ({children, title}): Node => {
   const isDarkMode = useColorScheme() === 'dark';
+
+  SimpleZendesk.init("db3P4mXRizfzjfqb4fczfOM0Uao3Teru","e311fb5e362c129cd72ae2b01553b7750cfff4c35218fb6f");
   return (
     <View style={styles.sectionContainer}>
       <Text
@@ -70,10 +74,16 @@ const App: () => Node = () => {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
+          <Button
+            title="Open ZendeskChat Android"
+            onPress={() => {
+              // setOutputText('Hello!!!!!!!');
+              // SimpleZendesk.displayMessage('Faizan S.... SimpleZendesk installed correctly');
+              // MyLibrary2.openZendesk(name, email, phone);
+              SimpleZendesk.openZendesk("Faizan", "faizan@gmail.com", "0123123");
+              console.log("Open ZendeskChat Android");
+            }}
+          />
           <Section title="See Your Changes">
             <ReloadInstructions />
           </Section>
