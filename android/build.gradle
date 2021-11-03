@@ -35,6 +35,9 @@ allprojects {
         google()
         maven { url 'https://www.jitpack.io' }
 
+        //add to fix zendesk issue conflict with flexbox
+        jcenter() 
+        
         // needed for the android gradle to be able to get dependencies for zendesk that are added in the library/module
         maven { url 'https://zendesk.jfrog.io/zendesk/repo' } 
     }
